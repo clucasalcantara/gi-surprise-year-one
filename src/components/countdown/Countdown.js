@@ -20,6 +20,10 @@ const Container = styled.div`
     ${MediaQueries.mobile} {
         font-size: 16px;
     }
+
+    ${MediaQueries.smaller} {
+        font-size: 13px;
+    }
 `
 
 const CountdownWrapper = styled.div`
@@ -40,6 +44,10 @@ const SurpriseSpoilerWrapper = styled.div`
     }
     ${MediaQueries.mobile} {
         font-size: 13px;
+    }
+
+    ${MediaQueries.smaller} {
+        font-size: 11px;
     }
 `
 

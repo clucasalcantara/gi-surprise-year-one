@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import styled from "@emotion/styled"
 // Utils
-import { getTimeLeft } from "./date-evaluation"
+import { getTimeLeft, buildTimePieces } from "./datetime-utils"
 
 const Container = styled.div`
     position: fixed;
@@ -11,6 +11,8 @@ const Container = styled.div`
     justify-content: center;
     top: 0;
     left: 0;
+    background-color: #F9476C;
+    color: #FAF2E8;
 `
 
 const CountdownWrapper = styled.div`
@@ -20,9 +22,25 @@ const CountdownWrapper = styled.div`
     align-items: center;
 `
 
+const SurpriseSpoilerWrapper = styled.div`
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        margin-right: 5px;
+        font-weight: bold;
+    }
+`
+
+const Timer = styled.span`
+    font-size: 18px;
+    font-weight: bold;
+`
+
 export const Countdown = () => {
     const [timeLeft, setTimeLeft] = useState(getTimeLeft("09/17/2020"));
-
+    const timePieces = buildTimePieces(timeLeft)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -32,27 +50,17 @@ export const Countdown = () => {
         return () => clearTimeout(timer);
     });
 
-    const timerComponents = [];
-
-    Object.keys(timeLeft).forEach((interval) => {
-        if (!timeLeft[interval]) {
-            return;
-        }
-
-        timerComponents.push(
-            <span key={interval}>
-                {timeLeft[interval]} {interval}{" "}
-            </span>
-        );
-    });
 
     return (
         <Container>
             {
-                timerComponents.length ? (
+                timePieces.length ? (
                     <CountdownWrapper>
-                        <span>{timerComponents}</span>
-                        <span>Soon your surprise will be available!</span>
+                        <Timer>{timePieces}</Timer>
+                        <SurpriseSpoilerWrapper>
+                            <p>My Love,</p>
+                            <span>Your surprise will be available soon!</span>
+                        </SurpriseSpoilerWrapper>
                     </CountdownWrapper>
                 ) : <span>Time's up!</span>
             }

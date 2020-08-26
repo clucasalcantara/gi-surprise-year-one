@@ -6,7 +6,7 @@ import { Heart } from '../../assets/svg'
 const Container = styled.div`
     color: #FF8195;
     svg {
-        height: 70px;
+        height: 65px;
         animation-name: heartbeat; 
         animation-iteration-count: infinite;
         animation-duration: 1.5s;

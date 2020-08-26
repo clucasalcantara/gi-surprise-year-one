@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // UI Elements
 import { App } from './App';
+// Worker
+import * as serviceWorker from './pwa/serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -9,3 +11,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+serviceWorker.register();

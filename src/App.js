@@ -8,13 +8,15 @@ export const App = () => (
   <>
     <Global styles={css`
         ${emotionReset}
-
         *, *::after, *::before {
-          font-family: 'Lora', serif;
           box-sizing: border-box;
           -moz-osx-font-smoothing: grayscale;
           -webkit-font-smoothing: antialiased;
           font-smoothing: antialiased;
+        }
+        
+        body, html {
+          font-family: Montserrat;
         }
       `} 
     />

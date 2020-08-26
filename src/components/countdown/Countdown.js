@@ -31,13 +31,13 @@ const SurpriseSpoilerWrapper = styled.div`
     align-items: center;
     p {
         margin-right: 5px;
-        font-weight: bold;
+        font-weight: 800;
     }
 `
 
 const Timer = styled.span`
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 800;
     margin-top: 1rem;
 `
 

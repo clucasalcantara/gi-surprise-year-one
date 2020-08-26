@@ -7,13 +7,13 @@ const Container = styled.div`
     color: #FF8195;
     svg {
         height: 70px;
-        animation-name: heartFadeInOut; 
+        animation-name: heartbeat; 
         animation-iteration-count: infinite;
-        animation-duration: 2s;
+        animation-duration: 1.5s;
     }
 `
 const HeartAnimation = styled.div`
-    @keyframes heartFadeInOut {
+    @keyframes heartbeat {
         0% {transform: scale(1);}
         25% {transform: scale(.97);}
         35% {transform: scale(.9);}

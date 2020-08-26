@@ -6,10 +6,10 @@ export const getTimeLeft = (dateGoal) => {
 
     if (difference > 0) {
       timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)) || 0,
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24) || 0,
-        minutes: Math.floor((difference / 1000 / 60) % 60) || 0,
-        seconds: Math.floor((difference / 1000) % 60) || 0
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60)
     };
   }
 
@@ -20,14 +20,10 @@ export const getTimeLeft = (dateGoal) => {
 export const buildTimePieces = (timeLeft) => {
   const timePieces = [];
 
-  Object.keys(timeLeft).forEach((interval) => {
-      if (!timeLeft[interval]) {
-          return;
-      }
-
+  Object.keys(timeLeft).forEach((interval) => {      
       timePieces.push(
           <span key={interval}>
-              {timeLeft[interval]} {interval}{" "}
+              {timeLeft[interval] || "0"} {interval}{" "}
           </span>
       );
   });

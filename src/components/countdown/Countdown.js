@@ -11,8 +11,8 @@ const Container = styled.div`
     justify-content: center;
     top: 0;
     left: 0;
-    background-color: #F9476C;
-    color: #FAF2E8;
+    background-color: #FDD5C8;
+    color: #F9476C;
 `
 
 const CountdownWrapper = styled.div`

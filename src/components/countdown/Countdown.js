@@ -1,5 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import styled from "@emotion/styled"
+// UI Elements
+import { Heartbeat } from '../heartbeat'
 // Utils
 import { getTimeLeft, buildTimePieces } from "./datetime-utils"
 
@@ -36,6 +38,7 @@ const SurpriseSpoilerWrapper = styled.div`
 const Timer = styled.span`
     font-size: 18px;
     font-weight: bold;
+    margin-top: 1rem;
 `
 
 export const Countdown = () => {
@@ -56,6 +59,7 @@ export const Countdown = () => {
             {
                 timePieces.length ? (
                     <CountdownWrapper>
+                        <Heartbeat />
                         <Timer>{timePieces}</Timer>
                         <SurpriseSpoilerWrapper>
                             <p>My Love,</p>

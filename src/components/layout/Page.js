@@ -10,6 +10,7 @@ const Container = styled.div`
   height: 100%;
   width: 100%;
   justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   background-color: ${({ theme }) => theme.colors.primary};

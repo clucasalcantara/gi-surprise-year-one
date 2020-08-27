@@ -1,3 +1,8 @@
 import React from 'react'
+import { Page } from '../../components/layout'
 
-export const QuizPage = () => <span>Quiz</span>
+export const QuizPage = () => (
+  <Page>
+    <span>Quiz</span>
+  </Page>
+)

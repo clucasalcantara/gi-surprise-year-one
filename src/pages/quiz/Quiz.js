@@ -1,8 +1,10 @@
 import React from 'react'
+// UI Elements
 import { Page } from '../../components/layout'
+import { Question } from '../../components/question'
 
 export const QuizPage = () => (
   <Page>
-    <span>Quiz</span>
+    <Question />
   </Page>
 )

@@ -3,6 +3,7 @@ export default {
     text: '#F9476C',
     primary: '#FDD5C8',
     contrast: '#FF8195',
+    sand: '#FAF2E8',
   },
   font: {
     family: 'Montserrat',

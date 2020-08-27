@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
+import { useHistory } from 'react-router-dom'
 // UI Elements
 import { Answers } from '../answers'
 // Services
@@ -41,17 +42,20 @@ const QuestionImage = styled.img`
 `
 
 export const Question = ({ data }) => {
+  const history = useHistory()
   const [answer, setAnswer] = useState(null)
 
-  const handleAnswerScore = (answerId) => {
-    setAnswer(answerId)
+  const handleAnswer = (answerId) => setAnswer(answerId)
 
-    if (answerId === data.answerId) {
-      saveAnswer(answerId)
-      return console.log('YEY! Ponto pra você!')
+  const submitAnswer = () => {
+    if (answer === data.answerId) {
+      saveAnswer(answer)
+      alert('YEY! Ponto pra você!')
+
+      return history.goBack()
     }
 
-    return console.log('Resposta errada :(')
+    return alert('Resposta errada :(')
   }
 
   return (
@@ -61,7 +65,8 @@ export const Question = ({ data }) => {
         <Category>{data.category}</Category>
         <Enunciated>{data.enunciated}</Enunciated>
         <Answers
-          handleAnswer={(value) => handleAnswerScore(value)}
+          handleAnswer={(value) => handleAnswer(value)}
+          submitAnswer={() => submitAnswer()}
           answered={answer}
           options={data.answers}
         />

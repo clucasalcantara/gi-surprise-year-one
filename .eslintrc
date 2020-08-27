@@ -37,7 +37,8 @@
     "react/prop-types": 0,
     "prettier/prettier": ["error"],
     "import/prefer-default-export": 0,
-    "react/jsx-curly-brace-presence": 0
+    "react/jsx-curly-brace-presence": 0,
+    "no-alert": "off"
   },
   "globals": {
     "window": true,

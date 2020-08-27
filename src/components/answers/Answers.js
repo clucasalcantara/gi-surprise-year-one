@@ -29,7 +29,7 @@ const Label = styled.span`
   margin-left: 0.5rem;
 `
 
-export const Answers = ({ handleAnswer, answered, options }) => (
+export const Answers = ({ handleAnswer, submitAnswer, answered, options }) => (
   <Wrapper>
     {options.map(({ id, text }) => (
       <OptionWrapper key={id} onClick={() => handleAnswer(id)}>
@@ -37,6 +37,6 @@ export const Answers = ({ handleAnswer, answered, options }) => (
         <Label>{text}</Label>
       </OptionWrapper>
     ))}
-    <Button disabled={!answered} label="Answer" />
+    <Button disabled={!answered} label="Answer" clickAction={submitAnswer} />
   </Wrapper>
 )

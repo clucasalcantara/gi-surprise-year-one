@@ -19,7 +19,7 @@ const StyledButton = styled.button`
 `
 
 export const Button = ({ clickAction, label, disabled }) => (
-  <StyledButton disabled={disabled} onClick={clickAction}>
+  <StyledButton disabled={disabled} onClick={() => clickAction()}>
     {label}
   </StyledButton>
 )

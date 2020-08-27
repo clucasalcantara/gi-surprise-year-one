@@ -16,6 +16,7 @@ const StyledButton = styled.button`
     `
     cursor: not-allowed;
   `}
+  transition: all 0.3s ease-in;
 `
 
 export const Button = ({ clickAction, label, disabled }) => {

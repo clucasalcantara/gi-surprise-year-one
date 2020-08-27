@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { useTheme } from 'emotion-theming'
 // UI Elements
+import { Button } from '../../components/button'
 import { Page } from '../../components/layout'
 import { Countdown } from '../../components/countdown'
-import { Lovely } from '../../assets/svg'
+// Assets
+import { Love, Lovely } from '../../assets/svg'
+// Services
+import { getScore } from '../../services'
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,32 +16,80 @@ const Wrapper = styled.div`
 `
 
 const DailyQuestionWrapper = styled.div`
-  position: absolute;
-  bottom: 2rem;
   display: flex;
   align-items: center;
+  position: absolute;
+  bottom: 1rem;
+  padding: 1rem;
   svg {
+    position: absolute;
     margin-left: 1rem;
+    margin-bottom: -4rem;
   }
 `
+
 const DailyQuestion = styled.a`
+  font-size: 14px;
   color: ${({ theme }) => theme.colors.text};
   text-decoration: none;
   font-weight: 600;
+  text-align: center;
+`
+
+const Score = styled.span`
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 13px;
+  font-weight: 500;
+
+  svg {
+    margin-left: 0.5rem;
+  }
+`
+
+const DailyAnswer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const AnswerButton = styled.a`
+  font-size: 12px;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.text};
 `
 
 export const CountdownPage = () => {
-  const theme = useTheme()
+  const currentScore = getScore()
+  const scoreComplement =
+    currentScore > 1 || currentScore === 0 ? 'pontos' : 'ponto'
 
   return (
     <Page>
       <Wrapper>
         <Countdown />
+        {currentScore > 0 && (
+          <>
+            <Score>
+              {`Você tem ${currentScore} ${scoreComplement}`}
+              <Lovely width="20px" height="20px" />
+            </Score>
+            <Button disabled label="Trocar pontos por dicas" />
+          </>
+        )}
         <DailyQuestionWrapper>
-          <DailyQuestion href="/quiz" theme={theme}>
-            Ir para a pergunta do dia
-          </DailyQuestion>
-          <Lovely width="30px" height="30px" />
+          <Love height="60px" width="60px" />
+          <DailyAnswer>
+            <DailyQuestion>
+              Olarr, Você tem uma pergunta disponível!!
+            </DailyQuestion>
+            <AnswerButton href="/quiz">Responder</AnswerButton>
+          </DailyAnswer>
         </DailyQuestionWrapper>
       </Wrapper>
     </Page>

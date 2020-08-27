@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { useTheme } from 'emotion-theming'
 
 const StyledButton = styled.button`
   font-weight: 600;
@@ -19,15 +18,11 @@ const StyledButton = styled.button`
   transition: all 0.3s ease-in;
 `
 
-export const Button = ({ clickAction, label, disabled }) => {
-  const theme = useTheme()
-
-  return (
-    <StyledButton disabled={disabled} theme={theme} onClick={clickAction}>
-      {label}
-    </StyledButton>
-  )
-}
+export const Button = ({ clickAction, label, disabled }) => (
+  <StyledButton disabled={disabled} onClick={clickAction}>
+    {label}
+  </StyledButton>
+)
 
 Button.defaultProps = {
   label: 'Answer',

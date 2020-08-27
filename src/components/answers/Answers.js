@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { useTheme } from 'emotion-theming'
 // UI Elements
 import { Button } from '../button'
 
@@ -30,20 +29,14 @@ const Label = styled.span`
   margin-left: 0.5rem;
 `
 
-export const Answers = ({ handleAnswer, answered, options }) => {
-  const theme = useTheme()
-
-  return (
-    <Wrapper>
-      {options.map(({ label }) => (
-        <OptionWrapper key={label} onClick={() => handleAnswer(label)}>
-          <Option theme={theme} checked={answered === label} />
-          <Label>{label}</Label>
-        </OptionWrapper>
-      ))}
-      <Button theme={theme} disabled={!answered}>
-        Answer
-      </Button>
-    </Wrapper>
-  )
-}
+export const Answers = ({ handleAnswer, answered, options }) => (
+  <Wrapper>
+    {options.map(({ id, text }) => (
+      <OptionWrapper key={id} onClick={() => handleAnswer(id)}>
+        <Option checked={answered === id} />
+        <Label>{text}</Label>
+      </OptionWrapper>
+    ))}
+    <Button disabled={!answered} label="Answer" />
+  </Wrapper>
+)

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
-import { useTheme } from 'emotion-theming'
 // UI Elements
 import { Answers } from '../answers'
+// Services
+import { saveAnswer } from '../../services'
 
 const Container = styled.div`
   display: flex;
@@ -39,39 +40,30 @@ const QuestionImage = styled.img`
   align-self: flex-end;
 `
 
-const options = [
-  {
-    label: 'Bla',
-  },
-  {
-    label: 'Ble',
-  },
-  {
-    label: 'Bli',
-  },
-  {
-    label: 'Blo',
-  },
-  {
-    label: 'Blu',
-  },
-]
-
-export const Question = () => {
-  const theme = useTheme()
+export const Question = ({ data }) => {
   const [answer, setAnswer] = useState(null)
-  console.log({ answer })
+
+  const handleAnswerScore = (answerId) => {
+    setAnswer(answerId)
+
+    if (answerId === data.answerId) {
+      saveAnswer(answerId)
+      return console.log('YEY! Ponto pra você!')
+    }
+
+    return console.log('Resposta errada :(')
+  }
 
   return (
     <Container>
       <QuestionImage src="https://upload.wikimedia.org/wikipedia/pt/d/d2/Olaf.png" />
-      <Wrapper theme={theme}>
-        <Category>Disney</Category>
-        <Enunciated>Como diz Olaf: Por que eu sei que com o tempo?</Enunciated>
+      <Wrapper>
+        <Category>{data.category}</Category>
+        <Enunciated>{data.enunciated}</Enunciated>
         <Answers
-          handleAnswer={(value) => setAnswer(value)}
+          handleAnswer={(value) => handleAnswerScore(value)}
           answered={answer}
-          options={options}
+          options={data.answers}
         />
       </Wrapper>
     </Container>

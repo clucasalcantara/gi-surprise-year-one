@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { useTheme } from 'emotion-theming'
 // UI Elements
 import { Heart } from '../../assets/svg'
 
@@ -42,13 +41,9 @@ const HeartAnimation = styled.div`
   }
 `
 
-export const Heartbeat = () => {
-  const theme = useTheme()
-
-  return (
-    <Container theme={theme}>
-      <HeartAnimation />
-      <Heart />
-    </Container>
-  )
-}
+export const Heartbeat = () => (
+  <Container>
+    <HeartAnimation />
+    <Heart />
+  </Container>
+)

@@ -55,8 +55,8 @@ export const Countdown = () => {
           <Heartbeat />
           <Timer>{timePieces}</Timer>
           <SurpriseSpoilerWrapper>
-            <p>My Love,</p>
-            <span>Your surprise will be available soon!</span>
+            <p>Meu amor,</p>
+            <span>sua surpresa está chegando!</span>
           </SurpriseSpoilerWrapper>
         </CountdownWrapper>
       ) : (

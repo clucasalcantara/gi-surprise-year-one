@@ -26,6 +26,35 @@ const BackButton = styled.a`
   font-weight: 600;
 `
 
+const question = {
+  id: 1,
+  category: 'Disney',
+  enunciated: 'Como diz Olaf: Por que eu sei que com o tempo?',
+  answerId: 'a',
+  answers: [
+    {
+      id: 'a',
+      text: 'Bla',
+    },
+    {
+      id: 'b',
+      text: 'Ble',
+    },
+    {
+      id: 'c',
+      text: 'Bli',
+    },
+    {
+      id: 'd',
+      text: 'Blo',
+    },
+    {
+      id: 'f',
+      text: 'Blu',
+    },
+  ],
+}
+
 export const QuizPage = () => (
   <Page>
     <Wrapper>
@@ -33,7 +62,7 @@ export const QuizPage = () => (
         <BackArrow width="15px" height="15px" />
         Voltar
       </BackButton>
-      <Question />
+      <Question data={question} />
     </Wrapper>
   </Page>
 )

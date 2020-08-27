@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { useTheme } from 'emotion-theming'
 // UI Elements
 import { Heart } from '../../assets/svg'
 
 const Container = styled.div`
-    color: #FF8195;
+    color:  ${({ theme }) => theme.colors.contrast};
     svg {
         height: 65px;
         animation-name: heartbeat; 
@@ -25,9 +26,13 @@ const HeartAnimation = styled.div`
     }
 `
 
-export const Heartbeat = () => (
-    <Container>
-        <HeartAnimation />
-        <Heart />
-    </Container>
-)
+export const Heartbeat = () => {
+    const theme = useTheme()
+
+    return (
+        <Container theme={theme}>
+            <HeartAnimation />
+            <Heart />
+        </Container>
+    )
+}

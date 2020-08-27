@@ -5,11 +5,11 @@ import {Global, css} from '@emotion/core';
 export const GlobalStyle = ({ theme }) => {
     const bodyStyle = `
         body, html {
-            font-family: ${({ theme }) => theme.font.family};
-            font-size: ${({ theme }) => theme.font.sizes.regular};
+            font-family: ${theme.font.family};
+            font-size: ${theme.font.sizes.regular};
         }
     `
-    
+
     return (
         <Global styles={css`
                 ${emotionReset}

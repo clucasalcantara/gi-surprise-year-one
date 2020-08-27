@@ -83,7 +83,6 @@ export const CountdownPage = () => {
           </>
         )}
         <DailyQuestionWrapper>
-          <Love height="60px" width="60px" />
           <DailyAnswer>
             <DailyQuestion>
               Olarr, Você tem uma pergunta disponível!!

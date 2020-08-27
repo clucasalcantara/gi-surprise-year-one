@@ -1,30 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { useTheme } from 'emotion-theming'
 // UI Elements
 import { Heartbeat } from '../heartbeat'
 // Utils
 import { getTimeLeft, buildTimePieces } from './datetime-utils'
 import { MediaQueries } from '../../styles'
-
-const Container = styled.div`
-  position: fixed;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.text};
-  ${MediaQueries.mobile} {
-    font-size: ${({ theme }) => theme.font.sizes.medium};
-  }
-
-  ${MediaQueries.smaller} {
-    font-size: ${({ theme }) => theme.font.sizes.small};
-  }
-`
 
 const CountdownWrapper = styled.div`
   display: flex;
@@ -59,7 +39,6 @@ const Timer = styled.span`
 export const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft('09/17/2020'))
   const timePieces = buildTimePieces(timeLeft)
-  const theme = useTheme()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -70,7 +49,7 @@ export const Countdown = () => {
   })
 
   return (
-    <Container theme={theme}>
+    <>
       {timePieces.length ? (
         <CountdownWrapper>
           <Heartbeat />
@@ -83,6 +62,6 @@ export const Countdown = () => {
       ) : (
         <span>{`Time's up!`}</span>
       )}
-    </Container>
+    </>
   )
 }

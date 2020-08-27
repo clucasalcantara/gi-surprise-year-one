@@ -39,6 +39,24 @@ const QuestionImage = styled.img`
   align-self: flex-end;
 `
 
+const options = [
+  {
+    label: 'Bla',
+  },
+  {
+    label: 'Ble',
+  },
+  {
+    label: 'Bli',
+  },
+  {
+    label: 'Blo',
+  },
+  {
+    label: 'Blu',
+  },
+]
+
 export const Question = () => {
   const theme = useTheme()
   const [answer, setAnswer] = useState(null)
@@ -51,8 +69,9 @@ export const Question = () => {
         <Category>Disney</Category>
         <Enunciated>Como diz Olaf: Por que eu sei que com o tempo?</Enunciated>
         <Answers
-          handleAnswer={({ target }) => setAnswer(target.value)}
+          handleAnswer={(value) => setAnswer(value)}
           answered={answer}
+          options={options}
         />
       </Wrapper>
     </Container>

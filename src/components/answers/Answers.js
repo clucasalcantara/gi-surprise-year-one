@@ -12,48 +12,32 @@ const Wrapper = styled.div`
 
 const OptionWrapper = styled.div`
   display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 `
 
-const Option = styled.input`
-  margin-bottom: 1rem;
+const Option = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: ${({ theme, checked }) =>
+    checked ? theme.colors.text : 'white'};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  transition: all 0.3s ease-in;
 `
 
 const Label = styled.span`
   margin-left: 0.5rem;
 `
 
-const options = [
-  {
-    label: 'Bla',
-  },
-  {
-    label: 'Ble',
-  },
-  {
-    label: 'Bli',
-  },
-  {
-    label: 'Blo',
-  },
-  {
-    label: 'Blu',
-  },
-]
-
-export const Answers = ({ handleAnswer, answered }) => {
+export const Answers = ({ handleAnswer, answered, options }) => {
   const theme = useTheme()
 
   return (
     <Wrapper>
       {options.map(({ label }) => (
-        <OptionWrapper key={label}>
-          <Option
-            theme={theme}
-            value={label}
-            type="radio"
-            onChange={(event) => handleAnswer(event)}
-            checked={answered === label}
-          />
+        <OptionWrapper key={label} onClick={() => handleAnswer(label)}>
+          <Option theme={theme} checked={answered === label} />
           <Label>{label}</Label>
         </OptionWrapper>
       ))}

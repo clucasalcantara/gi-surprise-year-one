@@ -36,7 +36,8 @@
     "no-console": "off",
     "react/prop-types": 0,
     "prettier/prettier": ["error"],
-    "import/prefer-detaul-export": 0
+    "import/prefer-default-export": 0,
+    "react/jsx-curly-brace-presence": 0
   },
   "globals": {
     "window": true,

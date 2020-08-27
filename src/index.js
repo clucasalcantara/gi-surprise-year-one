@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { ThemeProvider } from 'emotion-theming'
 // UI Elements
-import { App } from './App';
+import { App } from './App'
 // Styles
 import theme from './styles/theme'
 // Worker
-import * as serviceWorker from './pwa/serviceWorker';
+import * as serviceWorker from './pwa/serviceWorker'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +15,6 @@ ReactDOM.render(
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
-);
+)
 
-serviceWorker.register();
+serviceWorker.register()

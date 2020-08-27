@@ -7,16 +7,22 @@ const StyledButton = styled.button`
   height: 40px;
   border-radius: 10px;
   border: 0 none;
-  background-color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme, disabled }) =>
+    !disabled ? theme.colors.text : theme.colors.disabled};
   color: ${({ theme }) => theme.colors.sand};
   font-size: 16px;
+  ${({ disabled }) =>
+    disabled &&
+    `
+    cursor: not-allowed;
+  `}
 `
 
-export const Button = ({ clickAction, label }) => {
+export const Button = ({ clickAction, label, disabled }) => {
   const theme = useTheme()
 
   return (
-    <StyledButton theme={theme} onClick={clickAction}>
+    <StyledButton disabled={disabled} theme={theme} onClick={clickAction}>
       {label}
     </StyledButton>
   )

@@ -41,7 +41,9 @@ export const Answers = ({ handleAnswer, answered, options }) => {
           <Label>{label}</Label>
         </OptionWrapper>
       ))}
-      {answered && <Button theme={theme}>Answer</Button>}
+      <Button theme={theme} disabled={!answered}>
+        Answer
+      </Button>
     </Wrapper>
   )
 }

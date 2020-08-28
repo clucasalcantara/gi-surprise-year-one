@@ -13,8 +13,8 @@ const Wrapper = styled.div`
 
 const BackButton = styled.a`
   position: absolute;
-  top: 1rem;
-  left: 2rem;
+  top: 1.5rem;
+  left: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;

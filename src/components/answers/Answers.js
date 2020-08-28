@@ -6,7 +6,7 @@ import { Button } from '../button'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 `
 
 const OptionWrapper = styled.div`

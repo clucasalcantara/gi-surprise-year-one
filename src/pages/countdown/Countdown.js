@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 // UI Elements
 import { Button } from '../../components/button'
 import { Page } from '../../components/layout'
 import { Countdown } from '../../components/countdown'
 // Assets
-import { Love, Lovely } from '../../assets/svg'
+import { Lovely } from '../../assets/svg'
 // Services
 import { getScore } from '../../services'
 
@@ -65,18 +65,23 @@ const AnswerButton = styled.a`
 `
 
 export const CountdownPage = () => {
-  const currentScore = getScore()
-  const scoreComplement =
-    currentScore > 1 || currentScore === 0 ? 'pontos' : 'ponto'
+  const [score, setScore] = useState(0)
+
+  useEffect(() => {
+    const currentScore = getScore()
+    setScore(currentScore)
+  }, [score])
+
+  const scoreComplement = score > 1 || score === 0 ? 'pontos' : 'ponto'
 
   return (
     <Page>
       <Wrapper>
         <Countdown />
-        {currentScore > 0 && (
+        {score > 0 && (
           <>
             <Score>
-              {`Você tem ${currentScore} ${scoreComplement}`}
+              {`Você tem ${score} ${scoreComplement}`}
               <Lovely width="20px" height="20px" />
             </Score>
             <Button disabled label="Trocar pontos por dicas" />

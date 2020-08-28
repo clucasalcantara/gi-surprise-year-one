@@ -4,7 +4,7 @@ export default {
     primary: '#FDD5C8',
     contrast: '#FF8195',
     sand: '#FAF2E8',
-    disabled: 'lightgray',
+    disabled: 'gainsboro',
   },
   font: {
     family: 'Montserrat',

@@ -82,7 +82,7 @@ export const CountdownPage = () => {
             <Button disabled label="Trocar pontos por dicas" />
           </>
         )}
-        {dailyQuestion && (
+        {dailyQuestion && !dailyQuestion.answered && (
           <DailyQuestionWrapper>
             <DailyQuestion>
               Olarr, Você tem uma pergunta disponível!!
@@ -90,6 +90,16 @@ export const CountdownPage = () => {
             <AnswerButton href={`/quiz/${dailyQuestion.id}`}>
               Responder
             </AnswerButton>
+          </DailyQuestionWrapper>
+        )}
+        {dailyQuestion && dailyQuestion.answered && (
+          <DailyQuestionWrapper>
+            <DailyQuestion>Você já respondeu a pergunta de hoje!</DailyQuestion>
+          </DailyQuestionWrapper>
+        )}
+        {!dailyQuestion && (
+          <DailyQuestionWrapper>
+            <DailyQuestion>Sem perguntas hoje!</DailyQuestion>
           </DailyQuestionWrapper>
         )}
       </Wrapper>

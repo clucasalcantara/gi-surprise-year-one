@@ -59,7 +59,7 @@ export const Question = () => {
       saveAnswer(questionId)
       alert('YEY! Ponto pra você!')
 
-      // return history.goBack()
+      return history.goBack()
     }
 
     return alert('Resposta errada :(')
@@ -67,24 +67,29 @@ export const Question = () => {
 
   return (
     <Container>
-      <ImageWrapper>
-        <LazyLoadImage
-          alt="The question image"
-          effect="blur"
-          src={question.image}
-          width="200px"
-        />
-      </ImageWrapper>
-      <Wrapper>
-        <Category>{question.category}</Category>
-        <Enunciated>{question.enunciated}</Enunciated>
-        <Answers
-          handleAnswer={(value) => handleAnswer(value)}
-          submitAnswer={() => submitAnswer()}
-          answered={answer}
-          options={question.answers}
-        />
-      </Wrapper>
+      {question && (
+        <>
+          <ImageWrapper>
+            <LazyLoadImage
+              alt="The question image"
+              effect="blur"
+              src={question.image}
+              width="200px"
+            />
+          </ImageWrapper>
+          <Wrapper>
+            <Category>{question.category}</Category>
+            <Enunciated>{question.enunciated}</Enunciated>
+            <Answers
+              handleAnswer={(value) => handleAnswer(value)}
+              submitAnswer={() => submitAnswer()}
+              answered={answer}
+              options={question.answers}
+            />
+          </Wrapper>
+        </>
+      )}
+      {!question && <span> Você já respondeu a pergunta de hoje! </span>}
     </Container>
   )
 }

@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
 const BackButton = styled.a`
   position: absolute;
-  top: 2;
+  top: 1rem;
   left: 2rem;
   display: flex;
   justify-content: center;
@@ -30,6 +30,7 @@ const question = {
   id: 1,
   category: 'Disney',
   enunciated: 'Como diz Olaf: Por que eu sei que com o tempo?',
+  image: 'https://upload.wikimedia.org/wikipedia/pt/d/d2/Olaf.png',
   answerId: 'a',
   answers: [
     {

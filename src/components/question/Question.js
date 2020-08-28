@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { useHistory } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 // UI Elements
 import { Answers } from '../answers'
 // Services
@@ -34,7 +36,8 @@ const Enunciated = styled.h2`
   color: ${({ theme }) => theme.colors.text};
 `
 
-const QuestionImage = styled.img`
+const ImageWrapper = styled.div`
+  min-height: 215px;
   width: 200px;
   z-index: 2;
   margin-bottom: -30px;
@@ -60,7 +63,14 @@ export const Question = ({ data }) => {
 
   return (
     <Container>
-      <QuestionImage src="https://upload.wikimedia.org/wikipedia/pt/d/d2/Olaf.png" />
+      <ImageWrapper>
+        <LazyLoadImage
+          alt="The question image"
+          effect="blur"
+          src={data.image}
+          width="200px"
+        />
+      </ImageWrapper>
       <Wrapper>
         <Category>{data.category}</Category>
         <Enunciated>{data.enunciated}</Enunciated>

@@ -1,3 +1,5 @@
+import dataset from './questions/dataset'
+
 export const getAnswers = () => {
   const answers = localStorage.getItem('formylove')
   if (answers) return JSON.parse(answers)
@@ -29,4 +31,16 @@ export const getScore = () => {
   if (answers) return JSON.parse(answers).length
 
   return [].length
+}
+
+export const fillDataset = () =>
+  localStorage.setItem('formylove-questions', JSON.stringify(dataset))
+
+export const getQuestions = () => {
+  const questions = localStorage.getItem('formylove-questions')
+  if (questions) return JSON.parse(questions)
+
+  fillDataset(dataset)
+
+  return dataset
 }

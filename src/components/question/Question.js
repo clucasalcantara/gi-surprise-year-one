@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 // UI Elements
 import { Answers } from '../answers'
 // Services
-import { saveAnswer } from '../../services'
+import { getQuestionById } from '../../services'
+// import { saveAnswer, getQuestionById } from '../../services'
+import { saveAnswer } from '../../services/answers'
 
 const Container = styled.div`
   display: flex;
@@ -44,18 +46,20 @@ const ImageWrapper = styled.div`
   align-self: flex-end;
 `
 
-export const Question = ({ data }) => {
+export const Question = () => {
   const history = useHistory()
+  const { questionId } = useParams()
+  const question = getQuestionById(questionId)
   const [answer, setAnswer] = useState(null)
 
   const handleAnswer = (answerId) => setAnswer(answerId)
 
   const submitAnswer = () => {
-    if (answer === data.answerId) {
-      saveAnswer(answer)
+    if (answer === question.answerId) {
+      saveAnswer(questionId)
       alert('YEY! Ponto pra você!')
 
-      return history.goBack()
+      // return history.goBack()
     }
 
     return alert('Resposta errada :(')
@@ -67,18 +71,18 @@ export const Question = ({ data }) => {
         <LazyLoadImage
           alt="The question image"
           effect="blur"
-          src={data.image}
+          src={question.image}
           width="200px"
         />
       </ImageWrapper>
       <Wrapper>
-        <Category>{data.category}</Category>
-        <Enunciated>{data.enunciated}</Enunciated>
+        <Category>{question.category}</Category>
+        <Enunciated>{question.enunciated}</Enunciated>
         <Answers
           handleAnswer={(value) => handleAnswer(value)}
           submitAnswer={() => submitAnswer()}
           answered={answer}
-          options={data.answers}
+          options={question.answers}
         />
       </Wrapper>
     </Container>

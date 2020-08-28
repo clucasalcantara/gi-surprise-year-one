@@ -7,7 +7,7 @@ import { Countdown } from '../../components/countdown'
 // Assets
 import { Lovely } from '../../assets/svg'
 // Services
-import { getScore } from '../../services'
+import { getScore, getQuestionByDate } from '../../services'
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,6 +17,7 @@ const Wrapper = styled.div`
 
 const DailyQuestionWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   position: absolute;
   bottom: 1rem;
@@ -50,13 +51,6 @@ const Score = styled.span`
   }
 `
 
-const DailyAnswer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
 const AnswerButton = styled.a`
   font-size: 12px;
   margin-top: 1rem;
@@ -66,6 +60,7 @@ const AnswerButton = styled.a`
 
 export const CountdownPage = () => {
   const [score, setScore] = useState(0)
+  const dailyQuestion = getQuestionByDate(new Date())
 
   useEffect(() => {
     const currentScore = getScore()
@@ -87,14 +82,16 @@ export const CountdownPage = () => {
             <Button disabled label="Trocar pontos por dicas" />
           </>
         )}
-        <DailyQuestionWrapper>
-          <DailyAnswer>
+        {dailyQuestion && (
+          <DailyQuestionWrapper>
             <DailyQuestion>
               Olarr, Você tem uma pergunta disponível!!
             </DailyQuestion>
-            <AnswerButton href="/quiz">Responder</AnswerButton>
-          </DailyAnswer>
-        </DailyQuestionWrapper>
+            <AnswerButton href={`/quiz/${dailyQuestion.id}`}>
+              Responder
+            </AnswerButton>
+          </DailyQuestionWrapper>
+        )}
       </Wrapper>
     </Page>
   )

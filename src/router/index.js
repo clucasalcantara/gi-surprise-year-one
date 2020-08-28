@@ -2,7 +2,7 @@ import { CountdownPage, QuizPage, ErrorPage } from '../pages'
 
 export const routes = [
   {
-    path: '/quiz',
+    path: '/quiz/:questionId',
     exact: true,
     component: QuizPage,
   },

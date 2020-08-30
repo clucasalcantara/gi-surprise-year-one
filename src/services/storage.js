@@ -1,5 +1,6 @@
 import dataset from './questions/dataset'
 
+// Answers
 export const getAnswers = () => {
   const answers = localStorage.getItem('formylove')
   if (answers) return JSON.parse(answers)
@@ -7,7 +8,10 @@ export const getAnswers = () => {
   return []
 }
 
-export const saveAnswer = (questionId) => {
+export const storeAnswers = (answers) =>
+  localStorage.setItem('formylove', JSON.stringify(answers))
+
+export const storeAnswer = (questionId) => {
   const answers = getAnswers()
   const alreadyExists = answers.find((id) => id === questionId)
 
@@ -26,21 +30,22 @@ export const saveAnswer = (questionId) => {
   return null
 }
 
-export const getScore = () => {
-  const answers = localStorage.getItem('formylove')
-  if (answers) return JSON.parse(answers).length
-
-  return [].length
-}
-
-export const fillDataset = () =>
-  localStorage.setItem('formylove-questions', JSON.stringify(dataset))
+// Questions
+export const storeQuestions = (questions) =>
+  localStorage.setItem('formylove-questions', JSON.stringify(questions))
 
 export const getQuestions = () => {
   const questions = localStorage.getItem('formylove-questions')
   if (questions) return JSON.parse(questions)
 
-  fillDataset(dataset)
+  storeQuestions(dataset)
 
   return dataset
+}
+
+export const getScore = () => {
+  const answers = localStorage.getItem('formylove')
+  if (answers) return JSON.parse(answers).length
+
+  return [].length
 }

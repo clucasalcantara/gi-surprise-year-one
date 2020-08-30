@@ -19,7 +19,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  max-width: 350px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.sand};
   padding: 1rem;
@@ -39,11 +39,15 @@ const Enunciated = styled.h2`
 `
 
 const ImageWrapper = styled.div`
+  disply: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 215px;
   width: 200px;
   z-index: 2;
   margin-bottom: -30px;
   align-self: flex-end;
+  ${({ additionalStyle }) => additionalStyle && additionalStyle};
 `
 
 export const Question = () => {
@@ -69,7 +73,7 @@ export const Question = () => {
     <Container>
       {question && (
         <>
-          <ImageWrapper>
+          <ImageWrapper additionalStyle={question.additionalStyle}>
             <LazyLoadImage
               alt="The question image"
               effect="blur"

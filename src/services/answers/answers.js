@@ -1,4 +1,9 @@
-import { getAnswers, getQuestions } from '../storage'
+import {
+  getAnswers,
+  storeAnswers,
+  storeQuestions,
+  getQuestions,
+} from '../storage'
 
 export const saveAnswer = (id) => {
   const answers = getAnswers()
@@ -12,8 +17,8 @@ export const saveAnswer = (id) => {
     answers.push(id)
 
     try {
-      localStorage.setItem('formylove', JSON.stringify(answers))
-      localStorage.setItem('formylove-questions', JSON.stringify(questions))
+      storeAnswers(answers)
+      storeQuestions(questions)
 
       return true
     } catch (error) {

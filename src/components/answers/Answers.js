@@ -16,6 +16,7 @@ const OptionWrapper = styled.div`
 `
 
 const Option = styled.div`
+  flex: 0 0 auto;
   width: 20px;
   height: 20px;
   border-radius: 10px;

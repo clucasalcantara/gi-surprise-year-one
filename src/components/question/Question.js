@@ -63,7 +63,7 @@ export const Question = () => {
       saveAnswer(questionId)
       alert('YEY! Ponto pra você!')
 
-      return history.goBack()
+      return history.replace('/')
     }
 
     return alert('Resposta errada :(')

@@ -60,6 +60,7 @@ export default [
     enunciated: 'Qual o nome verdadeiro do criador da Disney?',
     image: 'https://viverdeblog.com/wp-content/uploads/2017/03/disney-topo.png',
     answerId: 'WED',
+    additionalStyle: 'padding-top: 4rem;',
     answered: false,
     answers: [
       {
@@ -111,7 +112,11 @@ export default [
     enunciated: 'Quantos anos de existência a Disney possui?',
     image:
       'https://i.pinimg.com/originals/9a/e4/31/9ae431b83e611e0eddcfe713372267d6.png',
-    answerId: 'Branca de Neve',
+    answerId: '99',
+    additionalStyle: `
+      padding-bottom: 1.5rem;
+      margin-right: 0.5rem;
+    `,
     answered: false,
     answers: [
       {
@@ -140,6 +145,7 @@ export default [
     image:
       'https://i.pinimg.com/originals/82/86/9b/82869b7a174805303edca074b1ae3682.png',
     answerId: 'Zuko',
+    additionalStyle: 'padding-top: 1rem;',
     answered: false,
     answers: [
       {
@@ -169,6 +175,7 @@ export default [
     image:
       'https://i.pinimg.com/originals/a6/c1/f8/a6c1f805b9291500cde3e659d5fd7c10.png',
     answerId: 'Tai Chi',
+    additionalStyle: 'padding-top: 2rem;',
     answered: false,
     answers: [
       {
@@ -252,7 +259,7 @@ export default [
     id: '10',
     releaseDate: new Date('09/11/2020'),
     category: 'Friends',
-    enunciated: 'Qual o nome que seria usado no Central Perk?',
+    enunciated: 'Qual o nome original do Central Perk?',
     additionalStyle: 'padding-top: 8rem;',
     image:
       'https://i.pinimg.com/originals/0e/1c/2c/0e1c2c8034f7eace62380e9414beeda1.png',

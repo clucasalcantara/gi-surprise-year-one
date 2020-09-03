@@ -97,7 +97,7 @@ export const CountdownPage = () => {
             <DailyQuestion>Você já respondeu a pergunta de hoje!</DailyQuestion>
           </DailyQuestionWrapper>
         )}
-        {!dailyQuestion && (
+        {!dailyQuestion && !dailyQuestion.answered && (
           <DailyQuestionWrapper>
             <DailyQuestion>Sem perguntas hoje!</DailyQuestion>
           </DailyQuestionWrapper>

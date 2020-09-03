@@ -5,11 +5,12 @@ import {
   getQuestions,
 } from '../storage'
 
-export const saveAnswer = (id) => {
+export const saveAnswer = (id, isRight) => {
   const answers = getAnswers()
   const questions = getQuestions()
   const question = questions.find((item) => item.id === id)
   question.answered = true
+  question.isRight = isRight
 
   const alreadyExists = answers.find((answerId) => answerId === id)
 

@@ -60,13 +60,16 @@ export const Question = () => {
 
   const submitAnswer = () => {
     if (answer === question.answerId) {
-      saveAnswer(questionId)
+      saveAnswer(questionId, true)
       alert('YEY! Ponto pra você!')
 
       return history.replace('/')
     }
 
-    return alert('Resposta errada :(')
+    saveAnswer(questionId, false)
+    alert('Resposta errada :( Mais sorte na próxima!')
+
+    return history.replace('/')
   }
 
   return (

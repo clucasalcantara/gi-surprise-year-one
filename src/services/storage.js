@@ -44,8 +44,12 @@ export const getQuestions = () => {
 }
 
 export const getScore = () => {
-  const answers = localStorage.getItem('formylove')
-  if (answers) return JSON.parse(answers).length
+  const questions = localStorage.getItem('formylove-questions')
+  if (questions) {
+    const answered = JSON.parse(questions)
+
+    return answered.filter((answer) => answer.isRight).length
+  }
 
   return [].length
 }

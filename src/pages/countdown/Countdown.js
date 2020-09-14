@@ -93,7 +93,7 @@ export const CountdownPage = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [tips, setTips] = useState([])
   const today = new Date().setHours(0, 0, 0, 0)
-  const tipsReleaseDate = new Date('09/16/2020').setHours(0, 0, 0, 0)
+  const tipsReleaseDate = new Date('09/14/2020').setHours(0, 0, 0, 0)
   const dailyQuestion = getQuestionByDate(today)
 
   useEffect(() => {

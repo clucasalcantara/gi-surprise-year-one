@@ -48,7 +48,7 @@ export const getScore = () => {
   if (questions) {
     const answered = JSON.parse(questions)
 
-    return answered.filter((answer) => answer.isRight).length
+    return answered.length
   }
 
   return [].length

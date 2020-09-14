@@ -111,21 +111,23 @@ export const CountdownPage = () => {
     <Page>
       <Wrapper>
         <Countdown />
-        {score > 0 && today === tipsReleaseDate && (
+        {score > 0 && (
           <>
             <Score>
               {`Você tem ${score} ${scoreComplement}`}
               <Lovely width="20px" height="20px" />
             </Score>
-            <Button
-              disabled={score < 1}
-              label="Trocar pontos por dicas"
-              clickAction={() => {
-                exchangeTips(tips)
+            {today === tipsReleaseDate && (
+              <Button
+                disabled={score < 1}
+                label="Trocar pontos por dicas"
+                clickAction={() => {
+                  exchangeTips(tips)
 
-                window.location.reload()
-              }}
-            />
+                  window.location.reload()
+                }}
+              />
+            )}
           </>
         )}
         {tips.length > 0 && (

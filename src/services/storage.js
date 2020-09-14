@@ -53,3 +53,16 @@ export const getScore = () => {
 
   return [].length
 }
+
+export const getAvailableTips = () => {
+  const tips = localStorage.getItem('formylove-tips')
+
+  if (tips) {
+    return JSON.parse(tips)
+  }
+
+  return []
+}
+
+export const storeTips = (tips) =>
+  localStorage.setItem('formylove-tips', JSON.stringify(tips))

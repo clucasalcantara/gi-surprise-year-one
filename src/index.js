@@ -6,7 +6,7 @@ import { App } from './App'
 // Styles
 import theme from './styles/theme'
 // Worker
-import * as serviceWorker from './pwa/serviceWorker'
+// import * as serviceWorker from './pwa/serviceWorker'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,5 +16,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
-
-serviceWorker.register()

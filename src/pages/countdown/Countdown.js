@@ -107,6 +107,7 @@ export const CountdownPage = () => {
   const scoreComplement = score > 1 || score === 0 ? 'pontos' : 'ponto'
   const tipsComplement = tips.length > 1 || tips.length === 0 ? 'dicas' : 'dica'
 
+  console.log({ score })
   return (
     <Page>
       <Wrapper>

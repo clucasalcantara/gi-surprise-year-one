@@ -107,7 +107,6 @@ export const CountdownPage = () => {
   const scoreComplement = score > 1 || score === 0 ? 'pontos' : 'ponto'
   const tipsComplement = tips.length > 1 || tips.length === 0 ? 'dicas' : 'dica'
 
-  console.log({ score })
   return (
     <Page>
       <Wrapper>
@@ -118,9 +117,9 @@ export const CountdownPage = () => {
               {`Você tem ${score} ${scoreComplement}`}
               <Lovely width="20px" height="20px" />
             </Score>
-            {today === tipsReleaseDate && (
+            {today >= tipsReleaseDate && (
               <Button
-                disabled={score === 0}
+                disabled={score < 1}
                 label="Trocar pontos por dicas"
                 clickAction={() => {
                   exchangeTips(tips)

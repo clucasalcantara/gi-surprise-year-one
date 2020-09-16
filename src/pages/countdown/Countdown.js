@@ -119,7 +119,7 @@ export const CountdownPage = () => {
             </Score>
             {today === tipsReleaseDate && (
               <Button
-                disabled={score < 1}
+                disabled={score === 0}
                 label="Trocar pontos por dicas"
                 clickAction={() => {
                   exchangeTips(tips)

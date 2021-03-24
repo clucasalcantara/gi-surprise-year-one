@@ -93,7 +93,7 @@ export const CountdownPage = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [tips, setTips] = useState([])
   const today = new Date().setHours(0, 0, 0, 0)
-  const tipsReleaseDate = new Date('09/14/2020').setHours(0, 0, 0, 0)
+  const tipsReleaseDate = new Date('06/19/2021').setHours(0, 0, 0, 0)
   const dailyQuestion = getQuestionByDate(today)
 
   useEffect(() => {
@@ -142,7 +142,7 @@ export const CountdownPage = () => {
             />
           </TipsWrapper>
         )}
-        {dailyQuestion && !dailyQuestion.answered && (
+        {dailyQuestion && !dailyQuestion?.answered && (
           <DailyQuestionWrapper>
             <DailyQuestion>
               Olarr, Você tem uma pergunta disponível!!
@@ -152,12 +152,12 @@ export const CountdownPage = () => {
             </AnswerButton>
           </DailyQuestionWrapper>
         )}
-        {dailyQuestion && dailyQuestion.answered && (
+        {dailyQuestion && dailyQuestion?.answered && (
           <DailyQuestionWrapper>
             <DailyQuestion>Você já respondeu a pergunta de hoje!</DailyQuestion>
           </DailyQuestionWrapper>
         )}
-        {!dailyQuestion && !dailyQuestion.answered && (
+        {!dailyQuestion && !dailyQuestion?.answered && (
           <DailyQuestionWrapper>
             <DailyQuestion>Sem perguntas hoje!</DailyQuestion>
           </DailyQuestionWrapper>

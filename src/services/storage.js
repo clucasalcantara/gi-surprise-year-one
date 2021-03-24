@@ -45,8 +45,10 @@ export const getQuestions = () => {
 
 export const getScore = () => {
   const questions = localStorage.getItem('formylove-questions')
+
   if (questions) {
     const answered = JSON.parse(questions)
+    console.log({ answered })
 
     return answered.filter((question) => question.answered).length
   }

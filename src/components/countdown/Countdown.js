@@ -37,12 +37,12 @@ const Timer = styled.span`
 `
 
 export const Countdown = () => {
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft('09/17/2020'))
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft('06/19/2021'))
   const timePieces = buildTimePieces(timeLeft)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(getTimeLeft('09/17/2020'))
+      setTimeLeft(getTimeLeft('06/19/2021'))
     }, 1000)
 
     return () => clearTimeout(timer)

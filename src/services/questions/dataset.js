@@ -6,7 +6,7 @@ export default [
     enunciated: 'Como diz Olaf: Por que eu sei que com o tempo?',
     image: 'https://upload.wikimedia.org/wikipedia/pt/d/d2/Olaf.png',
     answerId: 'entender',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: 'vftm',
@@ -33,7 +33,7 @@ export default [
     enunciated: 'Em que ano foi lançado o primeiro filme da Disney?',
     image: 'https://pbs.twimg.com/media/DbrMuVzX4AAAY0t.png',
     answerId: '1928',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: '1928',
@@ -61,7 +61,7 @@ export default [
     image: 'https://viverdeblog.com/wp-content/uploads/2017/03/disney-topo.png',
     answerId: 'WED',
     additionalStyle: 'padding-top: 4rem;',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: 'WD',
@@ -89,7 +89,7 @@ export default [
     image:
       'https://i.pinimg.com/originals/a9/fd/0b/a9fd0bcbc7e8a2d4f114bb82a6d06a51.png',
     answerId: 'Branca de Neve',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: 'Pinóquio',
@@ -117,7 +117,7 @@ export default [
       padding-bottom: 1.5rem;
       margin-right: 0.5rem;
     `,
-    answered: true,
+    answered: false,
     answers: [
       {
         id: '99',
@@ -146,7 +146,7 @@ export default [
       'https://i.pinimg.com/originals/82/86/9b/82869b7a174805303edca074b1ae3682.png',
     answerId: 'Zuko',
     additionalStyle: 'padding-top: 1rem;',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: 'Zuko',
@@ -176,7 +176,7 @@ export default [
       'https://i.pinimg.com/originals/a6/c1/f8/a6c1f805b9291500cde3e659d5fd7c10.png',
     answerId: 'Tai Chi',
     additionalStyle: 'padding-top: 2rem;',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: 'Tai Chi',
@@ -205,7 +205,7 @@ export default [
     image:
       'https://i.pinimg.com/originals/57/1f/66/571f66161e58a30d416904f049663d89.png',
     answerId: 'Kung Fu',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: 'Karate',
@@ -235,7 +235,7 @@ export default [
       'https://i.pinimg.com/originals/ce/27/87/ce27870499a90e05363c91afe6b04aed.png',
     additionalStyle: 'padding-top: 4rem;',
     answerId: 'Medium',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: 'Elementos',
@@ -264,7 +264,7 @@ export default [
     image:
       'https://i.pinimg.com/originals/0e/1c/2c/0e1c2c8034f7eace62380e9414beeda1.png',
     answerId: 'Insomnia',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: 'Insomnia',
@@ -293,7 +293,7 @@ export default [
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Friends_logo.svg/1280px-Friends_logo.svg.png',
     answerId: 'friends1',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: 'friends1',
@@ -321,7 +321,7 @@ export default [
     additionalStyle: 'padding-top: 8rem;',
     image: 'https://dbdzm869oupei.cloudfront.net/img/sticker/preview/18159.png',
     answerId: 'Ross',
-    answered: true,
+    answered: false,
     answers: [
       {
         id: 'Chandler',
